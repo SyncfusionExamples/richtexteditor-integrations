@@ -10,7 +10,6 @@ import WProofreader from '@webspellchecker/wproofreader-sdk-js';
   selector: 'app-root',
   template: `<ejs-richtexteditor #spellEditor id='editor' [value]='value'>
   </ejs-richtexteditor>`,
-
   providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
 })
 

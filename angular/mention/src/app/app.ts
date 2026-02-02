@@ -1,5 +1,5 @@
 import { MentionModule } from '@syncfusion/ej2-angular-dropdowns';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RichTextEditorModule, ToolbarService, HtmlEditorService, ImageService, LinkService, QuickToolbarService, TableService, PasteCleanupService } from '@syncfusion/ej2-angular-richtexteditor';
 import { NgStyle } from '@angular/common';
 
@@ -7,6 +7,8 @@ import { NgStyle } from '@angular/common';
   imports: [RichTextEditorModule, MentionModule, NgStyle],
   standalone: true,
   selector: 'app-root',
+  styleUrl: 'app.css',
+  encapsulation: ViewEncapsulation.None,
   template: `
   <div>
     <ejs-richtexteditor
@@ -53,7 +55,7 @@ import { NgStyle } from '@angular/common';
   providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, QuickToolbarService, TableService, PasteCleanupService, NgStyle]
 })
 export class App {
-  public data: { [key: string]: MentionModule }[] = [
+  public data: { [key: string]: Object }[] = [
     { name: "Selma Rose", initial: 'SR', email: "selma@gmail.com", color: '#FAFDFF', bgColor: '#01579B' },
     { name: "Maria", initial: 'MA', email: "maria@gmail.com", color: '#004378', bgColor: '#ADDBFF' },
     { name: "Russo Kay", initial: 'RK', email: "russo@gmail.com", color: '#F9DEDC', bgColor: '#8C1D18' },
