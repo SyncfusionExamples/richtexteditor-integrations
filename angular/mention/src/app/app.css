@@ -42,7 +42,3 @@
     padding: 10px;
     height: 60px;
 }
-body[class*="-dark"] .em-name,
-body[class*="highcontrast"] .em-name {
-    color: #fff !important;
-}
