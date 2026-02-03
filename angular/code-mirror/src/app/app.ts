@@ -16,12 +16,13 @@ import { oneDark } from '@codemirror/theme-one-dark';
     selector: 'app-root',
     styleUrl: 'app.css',
     encapsulation: ViewEncapsulation.None,
-    template: `<ejs-richtexteditor #editor [value]="value" [toolbarSettings]='tools' [showCharCount]='true' (actionComplete)='actionCompleteHandler($event)' [maxLength]='maxLength'></ejs-richtexteditor>`,
+    template: `<ejs-richtexteditor #editor [value]="value" [toolbarSettings]='tools' [showCharCount]='true' (actionComplete)='actionCompleteHandler($event)'></ejs-richtexteditor>`,
     providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, CountService]
 })
 
 export class App  {
-    @ViewChild('editor') public rteObj?: RichTextEditorComponent;
+    @ViewChild('editor')
+    public rteObj?: RichTextEditorComponent;
     public tools: ToolbarSettingsModel = {
         items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
         'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
@@ -46,7 +47,6 @@ export class App  {
         </li>
         </ul><div style="display: inline-block; width: 60%; vertical-align: top; cursor: auto;"><img alt="Sky with sun" src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Overview.png" width="309" style="min-width: 10px; min-height: 10px; width: 309px; height: 174px;" class="e-rte-image e-imginline e-rte-drag-image" height="174" /></div>  `;
 
-    public maxLength: number = 1000;
     public textArea?: HTMLElement;
     public myCodeMirror?: EditorView;
     public mirrorConversion(e?: any): void {
