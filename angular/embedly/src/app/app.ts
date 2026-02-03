@@ -13,10 +13,10 @@ import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextE
 })
 
 export class App  {
-    @ViewChild('sample') public rteObj?: RichTextEditorComponent;
+    @ViewChild('sample')
+    public rteObj?: RichTextEditorComponent;
     public toolbarSettings: Object = {
         items: ['createLink']
-      
     };
     public actionComplete(args: any): void {
         if (<String>args.requestType === 'Links') {
