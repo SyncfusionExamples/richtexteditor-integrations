@@ -19,12 +19,13 @@ import hljs from 'highlight.js/lib/common';
   providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, QuickToolbarService, CodeBlockService],
 })
 export class App {
-  @ViewChild('rte', { static: true })
+  @ViewChild('rte')
   public rte: RichTextEditorComponent | undefined;
   public tools: ToolbarSettingsModel = {
-    items: ['Undo', 'Redo', '|', 'CodeBlock', '|', 'InsertCode','Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
+    items: ['Undo', 'Redo', '|', 'CodeBlock', '|', 'InsertCode', 'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
       'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'SourceCode']
   };
+  private debounceTimer: number | undefined;
   public initialHtml = `
     <p>Welcome! Here are some preloaded code blocks:</p>
 
@@ -68,30 +69,15 @@ int main() {
   }
 
   onChange() {
-    this.highlightAllCodeBlocks()
+    this.highlightAllCodeBlocks();
   }
 
-  private highlightAllCodeBlocks() {
-    const container = this.rte!.element.querySelector('.e-rte-content .e-content') as HTMLElement | null;
-    if (!container) return;
-    const blocks = container.querySelectorAll<HTMLElement>('pre code');
-    blocks.forEach((el) => {
-      const hasLanguageClass = /\blanguage-/.test(el.className || '');
-      try {
-        if (hasLanguageClass) {
-          // Language explicitly provided
-          hljs.highlightElement(el);
-        } else {
-          // No language → auto-detect
-          const result = hljs.highlightAuto(el.textContent ?? '');
-          el.innerHTML = result.value;
-          el.classList.add('hljs');
-        }
-      } catch {
-        // Graceful fallback
-        el.classList.add('hljs');
-      }
+ private highlightAllCodeBlocks() {
+    const container: HTMLElement = this.rte!.element.querySelector('.e-rte-content') as HTMLElement;
+    if (!container) { return; }
+    const blocks: NodeListOf<Element> = container.querySelectorAll('pre code');
+    blocks.forEach((block: Element) => {
+      hljs.highlightElement(block as HTMLElement);
     });
   }
-
 }
