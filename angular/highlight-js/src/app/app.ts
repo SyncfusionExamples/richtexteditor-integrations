@@ -11,7 +11,7 @@ import hljs from 'highlight.js/lib/common';
     <ejs-richtexteditor
       #rte
       [value]="initialHtml"
-       [toolbarSettings]='tools'
+      [toolbarSettings]='tools'
       (created)="onCreated()"
       (change)="onChange()"
     ></ejs-richtexteditor>
@@ -71,7 +71,7 @@ int main() {
     this.highlightAllCodeBlocks();
   }
 
- private highlightAllCodeBlocks() {
+  private highlightAllCodeBlocks() {
     const container: HTMLElement = this.rte!.element.querySelector('.e-rte-content') as HTMLElement;
     if (!container) { return; }
     const blocks: NodeListOf<Element> = container.querySelectorAll('pre code');
