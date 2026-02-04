@@ -25,7 +25,6 @@ export class App {
     items: ['Undo', 'Redo', '|', 'CodeBlock', '|', 'InsertCode', 'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
       'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'SourceCode']
   };
-  private debounceTimer: number | undefined;
   public initialHtml = `
     <p>Welcome! Here are some preloaded code blocks:</p>
 
