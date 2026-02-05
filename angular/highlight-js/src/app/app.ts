@@ -72,7 +72,7 @@ int main() {
   }
 
   private highlightAllCodeBlocks() {
-    const container: HTMLElement = this.rte!.element.querySelector('.e-rte-content') as HTMLElement;
+    const container: HTMLElement = this.rte?.inputElement as HTMLElement;
     if (!container) { return; }
     const blocks: NodeListOf<Element> = container.querySelectorAll('pre code');
     blocks.forEach((block: Element) => {
