@@ -37,9 +37,10 @@ import { DataManager, Query, WebApiAdaptor } from '@syncfusion/ej2-data';
 })
 export class App {
   public searchData: DataManager = new DataManager({
-    url: 'https://services.syncfusion.com/angular/production/api/Employees',
+    url: 'https://localhost:7114/api/Employees',
     adaptor: new WebApiAdaptor,
-    crossDomain: true
+    crossDomain: true,
+    offline: true // for local querying
   });
   public query: Query = new Query().select(['FirstName', 'EmployeeID']).take(7).requiresCount();
   public fields: Object = { text: 'FirstName', value: 'EmployeeID' };
