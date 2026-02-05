@@ -7,22 +7,11 @@ import { ImageEditor } from '@syncfusion/ej2-image-editor';
 @Component({
     selector: 'app-root',
     template: `
-<div class="control-section">
-    <ejs-richtexteditor
-     #toolsRTE
-     [showCharCount]="true"
-     [quickToolbarSettings]="quickToolbarSettings"
-     (toolbarClick)="toolbarClick($event)"
-   >
+    <ejs-richtexteditor #toolsRTE [showCharCount]="true" [quickToolbarSettings]="quickToolbarSettings" (toolbarClick)="toolbarClick($event)">
      <ng-template #valueTemplate>
        <p>
         An image can be edited within a Rich Text Editor using an Image Editor.
-         <img
-           id="img1"
-           style="height: 350px; width: 300px;"
-           src="https://picsum.photos/600/400"
-           aria-label="Bridge"
-         />
+         <img id="img1" style="height: 350px; width: 300px;" src="https://picsum.photos/600/400" aria-label="Bridge"/>
        </p>
        <p>
         It allows users to quickly and easily add an Image Editor to their Rich Text Editor.
@@ -31,7 +20,6 @@ import { ImageEditor } from '@syncfusion/ej2-image-editor';
        </p>
      </ng-template>
    </ejs-richtexteditor>
-</div>
 
 <ejs-dialog
      #Dialog
@@ -188,7 +176,7 @@ export class App {
     }
 
     public dispose(): void {
-        var imageEditorInstance = getComponent(document.getElementById('image-editor') as HTMLElement, 'image-editor') as ImageEditor;
+        const imageEditorInstance = getComponent(document.getElementById('image-editor') as HTMLElement, 'image-editor') as ImageEditor;
         if (imageEditorInstance !== null && imageEditorInstance !== undefined) {
             imageEditorInstance.destroy();
         }
