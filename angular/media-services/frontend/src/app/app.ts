@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToolbarService, LinkService, ImageService, HtmlEditorService, AudioService, VideoService, AudioSettingsModel, ImageSettingsModel, RichTextEditorModule, VideoSettingsModel } from '@syncfusion/ej2-angular-richtexteditor';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, AudioService, VideoService, AudioSettingsModel, ImageSettingsModel, RichTextEditorModule, VideoSettingsModel, ToolbarSettingsModel } from '@syncfusion/ej2-angular-richtexteditor';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { ToolbarService, LinkService, ImageService, HtmlEditorService, AudioServ
   providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, AudioService, VideoService],
 })
 export class App {
-  public tools: ToolbarService = {
+  public tools: ToolbarSettingsModel = {
     items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'Audio', 'Video', '|', 'SourceCode', 'Undo', 'Redo']
   };
   public insertImageSettings: ImageSettingsModel = {
