@@ -11,7 +11,7 @@ import { ToolbarService, LinkService, ImageService, HtmlEditorService, AudioServ
   providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, AudioService, VideoService],
 })
 export class App {
-  public tools: ToolbarModule = {
+  public tools: ToolbarService = {
     items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'Audio', 'Video', '|', 'SourceCode', 'Undo', 'Redo']
   };
   public insertImageSettings: ImageSettingsModel = {
